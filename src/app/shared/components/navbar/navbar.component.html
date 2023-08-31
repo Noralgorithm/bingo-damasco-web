@@ -1,0 +1,19 @@
+<header class="flex justify-between px-14 items-center pt-5">
+  <h1
+    routerLink="/"
+    class="text-5xl font-roboto-slab font-bold hover:cursor-pointer"
+    [style.color]="titleColor"
+  >
+    Damasco
+  </h1>
+
+  <nav
+    class="text-white flex gap-10 items-center justify-start font-bold"
+    *ngIf="showAuthLinks"
+  >
+    <a routerLink="/login">Iniciar sesión</a>
+    <a routerLink="/signup" class="bg-brand-aqua px-7 py-3 rounded-md"
+      >Registrarse</a
+    >
+  </nav>
+</header>

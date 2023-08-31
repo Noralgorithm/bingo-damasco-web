@@ -2,17 +2,18 @@ import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
 })
-export class AppComponent {
+export class NavbarComponent {
   constructor(private router: Router) {}
 
   private readonly WHITE = '#EFE9F4';
   private readonly DARK_GREEN = '#082022';
 
   public pathname: string = '';
-  public backgroundColor: string = this.DARK_GREEN;
+  public showAuthLinks: boolean = true;
+  public titleColor: string = this.DARK_GREEN;
 
   ngOnInit() {
     this.router.events.subscribe((event) => {
@@ -22,16 +23,20 @@ export class AppComponent {
     });
   }
 
-  private updatePathname(newPathname: string) {
+  private updatePathname = (newPathname: string) => {
     this.pathname = newPathname;
-    this.updateColor();
-  }
 
-  private updateColor() {
+    this.showAuthLinks =
+      this.pathname !== '/login' && this.pathname !== '/signup';
+
+    this.updateTitleColor();
+  };
+
+  private updateTitleColor = () => {
     if (this.pathname === '/login' || this.pathname === '/signup') {
-      this.backgroundColor = this.WHITE;
+      this.titleColor = this.DARK_GREEN;
     } else {
-      this.backgroundColor = this.DARK_GREEN;
+      this.titleColor = this.WHITE;
     }
-  }
+  };
 }
