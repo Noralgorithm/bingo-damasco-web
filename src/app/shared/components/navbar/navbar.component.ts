@@ -13,9 +13,15 @@ export class NavbarComponent {
   private readonly WHITE = '#EFE9F4';
   private readonly DARK_GREEN = '#082022';
 
+  private readonly DARK_GREEN_TEXT_COLOR_ROUTES = [
+    'login',
+    'signup',
+    'rooms',
+  ];
+
   public pathname: string = '';
   public showAuthLinks: boolean = true;
-  public titleColor: string = this.DARK_GREEN;
+  public textColor: string = this.DARK_GREEN;
   public isUserLoggedIn = this.authService.isUserLoggedIn();
 
   ngOnInit() {
@@ -37,10 +43,12 @@ export class NavbarComponent {
   };
 
   private updateTitleColor = () => {
-    if (this.pathname === '/login' || this.pathname === '/signup') {
-      this.titleColor = this.DARK_GREEN;
+    if (
+      this.DARK_GREEN_TEXT_COLOR_ROUTES.includes(this.pathname.split('/')[1])
+    ) {
+      this.textColor = this.DARK_GREEN;
     } else {
-      this.titleColor = this.WHITE;
+      this.textColor = this.WHITE;
     }
   };
 

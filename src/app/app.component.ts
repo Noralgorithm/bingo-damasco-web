@@ -11,6 +11,8 @@ export class AppComponent {
   private readonly WHITE = '#EFE9F4';
   private readonly DARK_GREEN = '#082022';
 
+  private WHITE_BACKGROUND_ROUTES = ['login', 'signup', 'rooms'];
+
   public pathname: string = '';
   public backgroundColor: string = this.DARK_GREEN;
 
@@ -28,7 +30,7 @@ export class AppComponent {
   }
 
   private updateColor() {
-    if (this.pathname === '/login' || this.pathname === '/signup') {
+    if (this.WHITE_BACKGROUND_ROUTES.includes(this.pathname.split('/')[1])) {
       this.backgroundColor = this.WHITE;
     } else {
       this.backgroundColor = this.DARK_GREEN;

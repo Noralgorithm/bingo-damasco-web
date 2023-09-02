@@ -1,0 +1,41 @@
+<div class="grid grid-cols- gap-y-4 bg-brand-dark-green p-5 w-[21%] rounded-md">
+  <ul
+    class="grid grid-cols-5 justify-center [&>li]:text-5xl [&>li]:flex [&>li]:justify-center [&>li]:items-center [&>li]:aspect-square [&>li>img]:h-[80%]"
+  >
+    <li
+      class="rounded-l-lg bg-gradient-to-tl from-brand-red to-brand-red-complement from-[0%] to-[100%]"
+    >
+      <img src="assets/B.svg" />
+    </li>
+    <li
+      class="bg-gradient-to-tl from-brand-yellow to-brand-yellow-complement from-[0%] to-[60%]"
+    >
+      <img src="assets/I.svg" />
+    </li>
+    <li
+      class="bg-gradient-to-tl from-brand-green to-brand-green-complement from-[0%] to-[100%]"
+    >
+      <img src="assets/N.svg" />
+    </li>
+    <li
+      class="bg-gradient-to-tl from-brand-purple to-brand-purple-complement from-[0%] to-[100%]"
+    >
+      <img src="assets/G.svg" />
+    </li>
+    <li
+      class="rounded-r-lg bg-gradient-to-tl from-brand-blue to-brand-blue-complement from-[0%] to-[100%]"
+    >
+      <img src="assets/O.svg" />
+    </li>
+  </ul>
+
+  <ul class="grid grid-cols-5 grid-rows-5">
+    <li
+      *ngFor="let number of numbers"
+      class="aspect-square text-brand-dark-green bg-brand-white flex justify-center items-center font-bold text-5xl border border-brand-dark-green"
+    >
+      <span *ngIf="number !== -1" class="aspect-square h-full w-full flex justify-center items-center">{{ number }}</span>
+      <img *ngIf="number === -1" src="assets/star.svg" class="p-1" />
+    </li>
+  </ul>
+</div>

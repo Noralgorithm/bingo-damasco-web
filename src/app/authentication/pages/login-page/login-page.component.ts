@@ -19,14 +19,14 @@ export class LoginPageComponent {
   public password = new FormControl('', Validators.required);
 
   public login = () => {
-    this.authService.login(this.email.value!, this.password.value!).subscribe(
-      (response: any) => {
+    this.authService.login(this.email.value!, this.password.value!).subscribe({
+      next: (response: any) => {
         this.authService.storeUserToken(response?.data?.token);
         this.router.navigateByUrl('/');
       },
-      (error) => {
+      error: (error) => {
         this.toastr.error(error?.error?.message || 'unknown error');
-      }
-    );
+      },
+    });
   };
 }

@@ -27,7 +27,7 @@ export class AuthenticationService {
   }
 
   public storeUserToken(token: string) {
-    localStorage.setItem('access_token', JSON.stringify(token));
+    localStorage.setItem('access_token', token);
   }
 
   public isUserLoggedIn() {

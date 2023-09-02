@@ -14,6 +14,11 @@ const routes: Routes = [
         (m) => m.AuthenticationModule
       ),
   },
+  {
+    path: 'rooms',
+    loadChildren: () =>
+      import('./bingo/bingo.module').then((m) => m.BingoModule),
+  },
   { path: '', redirectTo: '', pathMatch: 'full' },
 ];
 

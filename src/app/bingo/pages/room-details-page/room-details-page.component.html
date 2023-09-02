@@ -1,0 +1,10 @@
+<main class="text-2xl text-brand-dark-green">
+  <section *ngIf="room">
+    {{ room | json }}
+  </section>
+  <section class="flex justify-evenly">
+    <a [routerLink]="'/rooms/' + room?.id + '/cards'">Ver mis cartones</a>
+    <a>Comprar cartones</a>
+    <a>Ver juego</a>
+  </section>
+</main>

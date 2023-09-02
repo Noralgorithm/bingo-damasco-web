@@ -1,0 +1,14 @@
+<main class="text-brand-dark-green grid grid-cols-2 gap-4 pt-10">
+  <h2 *ngIf="rooms.length === 0">Loading...</h2>
+  <app-room-card
+    [room]="room"
+    *ngFor="let room of rooms"
+    class="flex flex-col justify-center"
+    (click)="goToRoomDetails(room.id)"
+  />
+</main>
+<app-bingo-card
+  [numbers]="[
+    10, 15, 13, 24, 38, 11, 22, 35, 27, 38, 12, 20, -1, 26, 34, 71, 52, 83, 12, 23, 91, 32, 13, 42, 73
+  ]"
+/>

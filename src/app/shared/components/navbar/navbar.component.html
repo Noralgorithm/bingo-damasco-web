@@ -2,14 +2,15 @@
   <h1
     routerLink="/"
     class="text-5xl font-roboto-slab font-bold hover:cursor-pointer"
-    [style.color]="titleColor"
+    [style.color]="textColor"
   >
     Damasco
   </h1>
 
   <nav
-    class="text-white flex gap-10 items-center justify-start font-bold"
+    class="flex gap-10 items-center justify-start font-bold"
     *ngIf="showAuthLinks && !isUserLoggedIn"
+    [style.color]="textColor"
   >
     <a routerLink="/login">Iniciar sesión</a>
     <a routerLink="/signup" class="bg-brand-aqua px-7 py-3 rounded-md"
@@ -17,10 +18,15 @@
     >
   </nav>
 
-  <nav *ngIf="isUserLoggedIn" class="flex gap-16 font-bold items-center justify-center">
+  <nav
+    *ngIf="isUserLoggedIn"
+    class="flex gap-16 font-bold items-center justify-center"
+    [style.color]="textColor"
+  >
     <a
       routerLink="/rooms"
-      class="border border-brand-white py-3 px-8 rounded-md"
+      class="border py-3 px-8 rounded-md"
+      [style.borderColor]="textColor"
       >Salas</a
     >
     <a routerLink="/marketplace">Tienda</a>

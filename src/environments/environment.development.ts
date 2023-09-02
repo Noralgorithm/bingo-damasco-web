@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  BACKEND_URL: 'https://bingo-backend-1c6r-dev.fl0.io/',
+  BACKEND_URL: 'http://localhost:3000/',
+  BACKEND_DOMAIN: 'localhost:3000',
 };
