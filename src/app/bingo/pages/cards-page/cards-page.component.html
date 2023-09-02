@@ -1,3 +1,7 @@
-<p class="text-brand-dark-green">
-  {{ cards | json }}
-</p>
+<main class="text-brand-dark-green">
+  <ul>
+    <li *ngFor="let card of cards">
+      <app-bingo-card [numbers]="card.card.flat()" />
+    </li>
+  </ul>
+</main>

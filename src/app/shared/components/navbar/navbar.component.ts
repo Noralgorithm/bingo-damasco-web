@@ -55,5 +55,6 @@ export class NavbarComponent {
   public logout = () => {
     this.authService.logout();
     this.isUserLoggedIn = false;
+    this.router.navigateByUrl('/');
   };
 }

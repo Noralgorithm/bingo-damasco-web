@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BingoCardComponent } from './bingo/components/bingo-card/bingo-card.component';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 const routes: Routes = [
   {
@@ -18,6 +20,15 @@ const routes: Routes = [
     path: 'rooms',
     loadChildren: () =>
       import('./bingo/bingo.module').then((m) => m.BingoModule),
+  },
+  {
+    path: 'test/:id',
+    component: BingoCardComponent,
+  },
+  {
+    path: '**',
+    component: NotFoundPageComponent,
+    pathMatch: 'full',
   },
   { path: '', redirectTo: '', pathMatch: 'full' },
 ];
