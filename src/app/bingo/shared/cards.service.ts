@@ -17,4 +17,22 @@ export class CardsService {
       this.BASE_URL + roomId + '/cards'
     );
   }
+
+  public generateCards(roomId: number, quantity: number) {
+    return this.http.post<ApiResponse<Card[]>>(
+      this.BASE_URL + roomId + '/generate_cards',
+      {
+        quantity,
+      }
+    );
+  }
+
+  public buyCards(roomId: number, cardsIds: number[]) {
+    return this.http.post<ApiResponse<null>>(
+      this.BASE_URL + roomId + '/buy_cards',
+      {
+        cardsIds,
+      }
+    );
+  }
 }

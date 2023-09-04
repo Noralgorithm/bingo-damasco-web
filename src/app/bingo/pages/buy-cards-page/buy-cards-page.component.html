@@ -1,0 +1,24 @@
+<main
+  class="text-brand-dark-green flex flex-col py-10 gap-4 items-center w-full"
+>
+  <section>
+    <h3 class="text-center text-4xl">¿Cuántos cartones quieres tomar?</h3>
+  </section>
+
+  <section class="flex flex-col">
+    <div
+      class="flex justify-center items-center [&>button]:p-5 [&>button]:bg-brand-aqua [&>button]:rounded-md text-brand-white text-4xl"
+    >
+      <button (click)="decrementQuantity()">-</button>
+      <span class="text-brand-dark-green min-w-[80px] text-center">{{
+        quantity
+      }}</span>
+      <button (click)="incrementQuantity()">+</button>
+    </div>
+    <button (click)="generateCards()">Tomar cartones</button>
+  </section>
+
+  <section *ngFor="let card of cards">
+    <app-bingo-card [numbers]="card.card.flat()" />
+  </section>
+</main>

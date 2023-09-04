@@ -1,33 +1,52 @@
-<main class="text-2xl text-brand-dark-green py-4 px-8">
-  <div *ngIf="room" class="flex flex-col shadow-md p-8">
+<main
+  class="text-2xl text-brand-dark-green py-4 px-8 flex justify-center items-center w-full"
+>
+  <div
+    *ngIf="room"
+    class="flex flex-col rounded-md p-8 py-12 gap-16 w-full max-w-4xl"
+  >
     <h2 class="text-center font-bold text-5xl">
       {{ room.name }}
     </h2>
 
-    <ul class="[&>li]:flex">
+    <ul
+      class="flex flex-col gap-4 [&>li]:flex [&>li]:justify-between font-semibold"
+    >
       <li>
         <span>Precio del cartón:</span>
-        <span>2 c</span>
+        <span>{{ room.card_price }} c</span>
       </li>
       <li>
         <span>Premio por línea:</span>
-        <span>10 c</span>
+        <span>{{ room.line_prize }} c</span>
       </li>
       <li>
         <span>Premio por bingo:</span>
-        <span>20 c</span>
+        <span>{{ room.bingo_prize }} c</span>
       </li>
       <li>
         <span>Frecuencia:</span>
-        <span>XDDDDD</span>
+        <span>{{ room.frequency }}</span>
       </li>
     </ul>
 
-    <section class="flex justify-evenly">
-      <a [routerLink]="'/rooms/' + room.id + '/cards'">Ver mis cartones</a>
-      <a>Comprar cartones</a>
+    <section class="flex justify-evenly [&>a]:text-center">
+      <a
+        [routerLink]="'/rooms/' + room.id + '/cards'"
+        class="border border-brand-dark-green rounded-md px-5 py-2"
+        >Ver mis cartones</a
+      >
+      <a
+        [routerLink]="'/rooms/' + room.id + '/cards/buy'"
+        class="bg-brand-yellow rounded-md px-5 py-2 text-brand-white"
+        >Comprar cartones</a
+      >
     </section>
 
-    <a>Ver juego</a>
+    <section class="flex justify-center items-center">
+      <a class="text-center bg-brand-aqua text-white rounded-md px-7 py-2"
+        >Ver juego</a
+      >
+    </section>
   </div>
 </main>
