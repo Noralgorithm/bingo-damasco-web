@@ -4,22 +4,22 @@
       Inicia sesión
     </h2>
     <form
+      [formGroup]="loginForm"
+      (ngSubmit)="login()"
       class="flex flex-col w-full justify-center items-center gap-8 [&>input]:py-2 [&>input]:px-2 [&>input]:rounded-md [&>input]:w-full [&>input]:max-w-md [&>input]:text-brand-dark-green"
     >
       <input
         type="email"
         placeholder="Correo electrónico"
-        [formControl]="email"
+        formControlName="email"
       />
       <input
         type="password"
         placeholder="Contraseña"
-        [formControl]="password"
+        formControlName="password"
       />
 
-      <button (click)="login()" class="bg-brand-aqua rounded-md py-3 px-8">
-        Ingresar
-      </button>
+      <button class="bg-brand-aqua rounded-md py-3 px-8">Ingresar</button>
 
       <span class="text-gray-400">
         ¿Es tu primera vez?

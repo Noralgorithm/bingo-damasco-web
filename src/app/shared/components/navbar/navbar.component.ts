@@ -13,16 +13,16 @@ export class NavbarComponent {
   private readonly WHITE = '#EFE9F4';
   private readonly DARK_GREEN = '#082022';
 
-  private readonly DARK_GREEN_TEXT_COLOR_ROUTES = [
-    'login',
-    'signup',
-    'rooms',
-  ];
+  private readonly DARK_GREEN_TEXT_COLOR_ROUTES = ['login', 'signup', 'rooms'];
 
   public pathname: string = '';
   public showAuthLinks: boolean = true;
   public textColor: string = this.DARK_GREEN;
   public isUserLoggedIn = this.authService.isUserLoggedIn();
+  public userCredits = 0;
+
+  public sidenavBackgroundDisplay: 'block' | 'none' = 'none';
+  public sidenavPosition: '0vw' | '-65vw' = '-65vw';
 
   ngOnInit() {
     this.router.events.subscribe((event) => {
@@ -30,6 +30,7 @@ export class NavbarComponent {
 
       this.updatePathname(event.url);
       this.isUserLoggedIn = this.authService.isUserLoggedIn();
+      this.userCredits = this.authService.getUserCredits() || 0;
     });
   }
 
@@ -56,5 +57,15 @@ export class NavbarComponent {
     this.authService.logout();
     this.isUserLoggedIn = false;
     this.router.navigateByUrl('/');
+  };
+
+  public openSidenav = () => {
+    this.sidenavBackgroundDisplay = 'block';
+    this.sidenavPosition = '0vw';
+  };
+
+  public closeSidenav = () => {
+    this.sidenavBackgroundDisplay = 'none';
+    this.sidenavPosition = '-65vw';
   };
 }

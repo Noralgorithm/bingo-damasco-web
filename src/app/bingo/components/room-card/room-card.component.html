@@ -1,6 +1,6 @@
 <article
   *ngIf="room"
-  class="flex flex-col justify-center bg-brand-dark-green rounded-md shadow-sm text-brand-white h-28 hover:cursor-pointer"
+  class="flex flex-col justify-center bg-brand-dark-green rounded-md shadow-sm text-brand-white h-28 hover:cursor-pointer min-h-[200px]"
 >
-  <h3 class="text-center">{{ room | json }}</h3>
+  <h3 class="text-center font-roboto-slab text-4xl font-bold">{{ room.name }}</h3>
 </article>

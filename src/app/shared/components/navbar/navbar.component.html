@@ -1,36 +1,108 @@
-<header class="flex justify-between px-14 items-center pt-5">
+<header class="flex justify-between items-center pt-5 w-full px-[5vw]">
   <h1
     routerLink="/"
-    class="text-5xl font-roboto-slab font-bold hover:cursor-pointer"
+    class="text-5xl font-roboto-slab font-bold hover:cursor-pointer text-center"
     [style.color]="textColor"
   >
     Damasco
   </h1>
 
-  <nav
-    class="flex gap-10 items-center justify-start font-bold"
-    *ngIf="showAuthLinks && !isUserLoggedIn"
-    [style.color]="textColor"
-  >
-    <a routerLink="/login">Iniciar sesión</a>
-    <a routerLink="/signup" class="bg-brand-aqua px-7 py-3 rounded-md"
-      >Registrarse</a
+  <section class="hidden lg:flex">
+    <nav
+      class="flex gap-10 items-center justify-start font-bold"
+      *ngIf="showAuthLinks && !isUserLoggedIn"
+      [style.color]="textColor"
     >
-  </nav>
+      <a routerLink="/login">Iniciar sesión</a>
+      <a routerLink="/signup" class="bg-brand-aqua px-7 py-3 rounded-md"
+        >Registrarse</a
+      >
+    </nav>
 
-  <nav
-    *ngIf="isUserLoggedIn"
-    class="flex gap-16 font-bold items-center justify-center"
-    [style.color]="textColor"
-  >
-    <a
-      routerLink="/rooms"
-      class="border py-3 px-8 rounded-md"
-      [style.borderColor]="textColor"
-      >Salas</a
+    <nav
+      *ngIf="isUserLoggedIn"
+      class="flex gap-16 font-bold items-center justify-center"
+      [style.color]="textColor"
     >
-    <a routerLink="/marketplace">Tienda</a>
-    <a routerLink="/profile">Mi perfil</a>
-    <button (click)="logout()">Cerrar sesión</button>
-  </nav>
+      <a
+        routerLink="/rooms"
+        class="border py-3 px-8 rounded-md"
+        [style.borderColor]="textColor"
+        >Salas</a
+      >
+      <a routerLink="/marketplace">Tienda</a>
+      <a routerLink="/profile">Mi perfil</a>
+      <button (click)="logout()">Cerrar sesión</button>
+      <h3 class="text-brand-aqua text-xl">{{ userCredits }} c</h3>
+    </nav>
+  </section>
+
+  <button class="h-[2rem] lg:hidden" (click)="openSidenav()">
+    <svg
+      version="1.1"
+      [style.fill]="textColor"
+      id="Capa_1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="800px"
+      height="800px"
+      viewBox="0 0 24.75 24.75"
+      xml:space="preserve"
+    >
+      <g>
+        <path
+          d="M0,3.875c0-1.104,0.896-2,2-2h20.75c1.104,0,2,0.896,2,2s-0.896,2-2,2H2C0.896,5.875,0,4.979,0,3.875z M22.75,10.375H2
+		c-1.104,0-2,0.896-2,2c0,1.104,0.896,2,2,2h20.75c1.104,0,2-0.896,2-2C24.75,11.271,23.855,10.375,22.75,10.375z M22.75,18.875H2
+		c-1.104,0-2,0.896-2,2s0.896,2,2,2h20.75c1.104,0,2-0.896,2-2S23.855,18.875,22.75,18.875z"
+        />
+      </g>
+    </svg>
+  </button>
 </header>
+
+<div
+  class="absolute w-screen h-screen bg-black inset-0 bg-opacity-50"
+  [style.display]="sidenavBackgroundDisplay"
+></div>
+
+<aside
+  class="absolute w-[65vw] h-screen bg-brand-white bottom-0 top-0 overflow-hidden transition-all duration-300"
+  [style.right]="sidenavPosition"
+  [style.display]="sidenavBackgroundDisplay"
+>
+  <button
+    class="absolute top-2 right-5 text-brand-dark-green"
+    (click)="closeSidenav()"
+  >
+    X
+  </button>
+  <ul
+    class="flex flex-col text-brand-dark-green text-2xl w-full text-left px-8 my-16 font-bold gap-6"
+    *ngIf="!isUserLoggedIn"
+  >
+    <li>
+      <a (click)="closeSidenav()" routerLink="/login"> Iniciar sesión </a>
+    </li>
+    <li>
+      <a (click)="closeSidenav()" routerLink="/signup"> Registrarse </a>
+    </li>
+  </ul>
+
+  <ul
+    class="flex flex-col text-brand-dark-green text-2xl w-full text-left px-8 my-16 font-bold gap-12"
+    *ngIf="isUserLoggedIn"
+  >
+    <li>
+      <a (click)="closeSidenav()" routerLink="/rooms"> Salas </a>
+    </li>
+    <li>
+      <a (click)="closeSidenav()" routerLink="/marketplace"> Tienda </a>
+    </li>
+    <li>
+      <a (click)="closeSidenav()" routerLink="/marketplace"> Mi perfil </a>
+    </li>
+    <li>
+      <button (click)="logout()" class="text-brand-red">Cerrar sesión</button>
+    </li>
+  </ul>
+</aside>

@@ -5,9 +5,9 @@
     <h3 class="text-center text-4xl">¿Cuántos cartones quieres tomar?</h3>
   </section>
 
-  <section class="flex flex-col">
+  <section class="flex flex-col gap-2">
     <div
-      class="flex justify-center items-center [&>button]:p-5 [&>button]:bg-brand-aqua [&>button]:rounded-md text-brand-white text-4xl"
+      class="flex justify-center items-center [&>button]:p-5 [&>button]:bg-brand-blue [&>button]:rounded-md text-brand-white text-4xl"
     >
       <button (click)="decrementQuantity()">-</button>
       <span class="text-brand-dark-green min-w-[80px] text-center">{{
@@ -15,10 +15,18 @@
       }}</span>
       <button (click)="incrementQuantity()">+</button>
     </div>
-    <button (click)="generateCards()">Tomar cartones</button>
+    <button (click)="generateCards()" class="rounded-md bg-brand-yellow text-brand-white py-3">Tomar cartones</button>
   </section>
 
-  <section *ngFor="let card of cards">
-    <app-bingo-card [numbers]="card.card.flat()" />
+  <section class="flex justify-center">
+    <ul class="flex gap-2">
+      <li *ngFor="let card of cards" class="max-w-sm">
+        <app-bingo-card [numbers]="card.card.flat()" />
+      </li>
+    </ul>
+  </section>
+
+  <section *ngIf="cards.length > 0">
+    <button (click)="buyCards()" class="rounded-md bg-brand-aqua text-brand-white py-3 px-6">Comprar</button>
   </section>
 </main>

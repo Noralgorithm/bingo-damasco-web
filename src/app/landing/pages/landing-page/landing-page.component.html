@@ -1,13 +1,16 @@
 <main
-  class="md:px-14 h-full w-full flex flex-col justify-center items-center gap-24 sm:px-2"
+  class="lg:px-14 h-full w-full flex flex-col justify-center items-center gap-16 sm:px-2 min-w-full "
 >
-  <h2 class="text-5xl font-bold text-center">¡Juega y gana ahora!</h2>
-  <p class="text-2xl text-balance text-center w-1/2 xl:w-1/3 sm:w-full">
+  <img src="assets/logo.svg" />
+  <h2 class="text-4xl md:text-5xl font-bold text-center">
+    ¡Juega y gana ahora!
+  </h2>
+  <p class="text-2xl text-balance text-center xl:w-1/3 w-full">
     Apuesta y disfruta del bingo clásico desde la comodidad de tu hogar.
   </p>
   <a
-    routerLink="/login"
-    class="bg-white text-brand-dark-green rounded-md px-7 py-3 font-bold"
+    (click)="playNavigation()"
+    class="bg-white text-brand-dark-green rounded-md px-7 py-3 font-bold hover:cursor-pointer"
     >Jugar ahora</a
   >
 </main>

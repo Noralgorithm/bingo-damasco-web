@@ -22,8 +22,11 @@ const routes: Routes = [
       import('./bingo/bingo.module').then((m) => m.BingoModule),
   },
   {
-    path: 'test/:id',
-    component: BingoCardComponent,
+    path: 'marketplace',
+    loadChildren: () =>
+      import('./marketplace/marketplace.module').then(
+        (m) => m.MarketplaceModule
+      ),
   },
   {
     path: '**',

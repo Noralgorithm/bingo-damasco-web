@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { inject } from '@angular/core';
 import { AuthenticationService } from 'src/app/shared/authentication.service';
 import { ToastrService } from 'ngx-toastr';
@@ -15,18 +15,28 @@ export class LoginPageComponent {
   private toastr = inject(ToastrService);
   private router = inject(Router);
 
-  public email = new FormControl('', Validators.email);
-  public password = new FormControl('', Validators.required);
+  private email = new FormControl('', Validators.email);
+  private password = new FormControl('', Validators.required);
+
+  public loginForm = new FormGroup({
+    email: this.email,
+    password: this.password,
+  });
 
   public login = () => {
-    this.authService.login(this.email.value!, this.password.value!).subscribe({
-      next: (response: any) => {
-        this.authService.storeUserToken(response?.data?.token);
-        this.router.navigateByUrl('/');
-      },
-      error: (error) => {
-        this.toastr.error(error?.error?.message || 'unknown error');
-      },
-    });
+    if (!this.loginForm.valid) return this.toastr.error('Revisa tus datos');
+
+    return this.authService
+      .login(this.email.value!, this.password.value!)
+      .subscribe({
+        next: (response) => {
+          console.log(response);
+          this.authService.storeUserData(response.data);
+          this.router.navigateByUrl('/');
+        },
+        error: (error) => {
+          this.toastr.error(error?.error?.message || 'unknown error');
+        },
+      });
   };
 }

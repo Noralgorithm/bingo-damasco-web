@@ -1,1 +1,52 @@
-<p>sign-up-page works!</p>
+<main class="w-full h-full flex">
+  <div class="h-3/4 w-full flex flex-col justify-center items-center gap-10">
+    <h2 class="text-4xl text-brand-dark-green font-bold font-roboto-slab">
+      Regístrate
+    </h2>
+    <form
+      [formGroup]="signupForm"
+      (ngSubmit)="signUp()"
+      class="flex flex-col w-full justify-center items-center gap-8 [&>input]:py-2 [&>input]:px-2 [&>input]:rounded-md [&>input]:w-full [&>input]:max-w-md [&>input]:text-brand-dark-green"
+    >
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        placeholder="Nombre completo"
+      />
+      <input
+        id="nickname"
+        type="text"
+        formControlName="nickname"
+        placeholder="Nombre de usuario"
+      />
+      <input
+        id="email"
+        type="text"
+        formControlName="email"
+        placeholder="Correo electrónico"
+      />
+      <input
+        id="password"
+        type="text"
+        formControlName="password"
+        placeholder="Contraseña"
+      />
+      <input
+        id="repeatedPassword"
+        type="text"
+        formControlName="repeatedPassword"
+        placeholder="Repite tu contraseña"
+      />
+
+      <button type="submit" class="bg-brand-aqua rounded-md py-3 px-8">
+        Registrarme
+      </button>
+
+      <span class="text-gray-400">
+        ¿Ya tienes cuenta?
+        <a routerLink="/login" class="text-brand-aqua">Inicia sesión</a>
+      </span>
+    </form>
+  </div>
+</main>
