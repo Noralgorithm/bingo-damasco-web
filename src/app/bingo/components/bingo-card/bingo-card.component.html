@@ -34,7 +34,17 @@
       *ngFor="let number of numbers"
       class="aspect-square text-brand-dark-green bg-brand-white flex justify-center items-center font-bold text-5xl border border-brand-dark-green"
     >
-      <span *ngIf="number !== -1" class="aspect-square h-full w-full flex justify-center items-center">{{ number }}</span>
+      <span
+        *ngIf="number !== -1"
+        class="aspect-square h-full w-full flex justify-center items-center"
+        ><div class="w-full flex justify-center items-center [&>img]:w-[60%] [&>img]:h-full px-2">
+          <img
+            [src]="'assets/numbers/' + obtainNumberDigits(number)[0] + '.svg'"
+          /><img
+            [src]="'assets/numbers/' + obtainNumberDigits(number)[1] + '.svg'"
+          />
+        </div>
+      </span>
       <img *ngIf="number === -1" src="assets/star.svg" class="p-1" />
     </li>
   </ul>

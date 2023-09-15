@@ -4,7 +4,8 @@
   >
     <app-room-card
       [room]="room"
-      *ngFor="let room of rooms"
+      [colorIdx]="idx%3"
+      *ngFor="let room of rooms, index as idx"
       class="flex flex-col justify-center"
       (click)="goToRoomDetails(room.id)"
     />
