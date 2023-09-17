@@ -11,5 +11,5 @@ export type User = {
   role: UserRoleType;
   credits: number;
   token?: string;
-  transactions: Transaction;
+  transactions: Transaction[];
 };

@@ -34,6 +34,12 @@ export class AuthenticationService {
     });
   }
 
+  public fetchUserInfo() {
+    return this.http.get<ApiResponse<User>>(
+      environment.BACKEND_URL + 'client/user/my_info'
+    );
+  }
+
   public logout() {
     localStorage.removeItem('access_token');
     localStorage.removeItem('user_data');
