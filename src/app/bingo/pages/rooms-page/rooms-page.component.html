@@ -6,7 +6,7 @@
       [room]="room"
       [colorIdx]="idx%3"
       *ngFor="let room of rooms, index as idx"
-      class="flex flex-col justify-center"
+      class="flex flex-col justify-center animate-fade-up animate-once animate-ease-out"
       (click)="goToRoomDetails(room.id)"
     />
   </div>

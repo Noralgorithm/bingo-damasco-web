@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LandingRoutingModule } from './landing-routing.module';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
   ],
   imports: [
     CommonModule,
-    LandingRoutingModule
+    LandingRoutingModule,
+    SharedModule
   ]
 })
 export class LandingModule { }
