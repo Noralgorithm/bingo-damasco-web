@@ -8,6 +8,7 @@ import { RoomCardComponent } from './components/room-card/room-card.component';
 import { CardsPageComponent } from './pages/cards-page/cards-page.component';
 import { BingoCardComponent } from './components/bingo-card/bingo-card.component';
 import { BuyCardsPageComponent } from './pages/buy-cards-page/buy-cards-page.component';
+import { GamePageComponent } from './pages/game-page/game-page.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { BuyCardsPageComponent } from './pages/buy-cards-page/buy-cards-page.com
     CardsPageComponent,
     BingoCardComponent,
     BuyCardsPageComponent,
+    GamePageComponent,
   ],
   imports: [CommonModule, BingoRoutingModule],
 })

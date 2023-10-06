@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { RoomsService } from '../../shared/rooms.service';
+import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Room } from 'src/app/shared/types';
-import cronstrue from 'cronstrue/i18n'
+import cronstrue from 'cronstrue';
 
 @Component({
-  selector: 'app-room-details-page',
-  templateUrl: './room-details-page.component.html',
+  selector: 'app-game-page',
+  templateUrl: './game-page.component.html',
 })
-export class RoomDetailsPageComponent {
+export class GamePageComponent {
   constructor(
     private roomsService: RoomsService,
     private activatedRoute: ActivatedRoute,
