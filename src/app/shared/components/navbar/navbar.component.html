@@ -24,12 +24,7 @@
       class="flex gap-16 font-bold items-center justify-center"
       [style.color]="textColor"
     >
-      <a
-        routerLink="/rooms"
-        class="border py-3 px-8 rounded-md"
-        [style.borderColor]="textColor"
-        >Salas</a
-      >
+      <a routerLink="/rooms">Salas</a>
       <a routerLink="/marketplace">Tienda</a>
       <a routerLink="/profile">Mi perfil</a>
       <button (click)="logout()">Cerrar sesión</button>
@@ -99,7 +94,7 @@
       <a (click)="closeSidenav()" routerLink="/marketplace"> Tienda </a>
     </li>
     <li>
-      <a (click)="closeSidenav()" routerLink="/marketplace"> Mi perfil </a>
+      <a (click)="closeSidenav()" routerLink="/profile"> Mi perfil </a>
     </li>
     <li>
       <button (click)="logout()" class="text-brand-red">Cerrar sesión</button>
