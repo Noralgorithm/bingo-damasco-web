@@ -1,21 +1,21 @@
 <main class="flex flex-col justify-center items-center pt-12 pb-8" *ngIf="userInfo">
   <section class="flex justify-between items-center w-full max-w-7xl">
-    <h3 class="text-4xl font-bold">@{{ userInfo.nickname }}</h3>
+    <h3 class="text-2xl lg:text-4xl font-bold">@{{ userInfo.nickname }}</h3>
     <a
       routerLink="/marketplace"
-      class="rounded-md bg-brand-aqua text-brand-white py-3 px-8"
+      class="rounded-md bg-brand-aqua text-brand-white py-3 lg:px-8 px-3"
     >
       Comprar créditos
     </a>
   </section>
   <section class="w-full max-w-7xl">
-    <h3 class="text-2xl">
+    <h3 class="text-lg lg:text-2xl">
       Saldo actual: <b class="font-bold">{{ userInfo.credits }} c</b>
     </h3>
   </section>
 
   <section class="w-full max-w-7xl flex flex-col gap-6">
-    <h3 class="text-2xl font-bold text-center">Historial de transacciones</h3>
+    <h3 class="text-lg lg:text-2xl font-bold text-center">Historial de transacciones</h3>
     <table
       class="bg-brand-white text-brand-dark-green w-full text-xl text-center rounded-lg table-fixed"
     >
@@ -26,7 +26,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let t of userInfo.transactions" class="table-row">
+        <tr *ngFor="let t of userInfo.transactions.reverse()" class="table-row">
           <td class="mt-8 table-cell">
             {{ t.date.toString().slice(0, 10) }}
           </td>
