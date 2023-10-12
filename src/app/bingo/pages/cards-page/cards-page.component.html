@@ -1,5 +1,7 @@
-<main class="text-brand-dark-green p-12">
-  <ul class="grid grid-cols-4 gap-2 gap-y-4">
+<main class="text-brand-dark-green px-4 pt-8 lg:p-12">
+  <ul
+    class="flex flex-col items-center justify-center lg:grid lg:grid-cols-4 gap-2 gap-y-4"
+  >
     <li *ngFor="let card of cards" class="max-w-sm">
       <app-bingo-card [numbers]="card.card.flat()" />
     </li>

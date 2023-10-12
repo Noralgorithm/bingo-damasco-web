@@ -18,8 +18,8 @@
     <button (click)="generateCards()" class="rounded-md bg-brand-yellow text-brand-white py-3">Tomar cartones</button>
   </section>
 
-  <section class="flex justify-center">
-    <ul class="flex gap-2">
+  <section class="flex justify-center items-center">
+    <ul class="flex flex-col justify-center items-center gap-2">
       <li *ngFor="let card of cards" class="max-w-sm">
         <app-bingo-card [numbers]="card.card.flat()" />
       </li>

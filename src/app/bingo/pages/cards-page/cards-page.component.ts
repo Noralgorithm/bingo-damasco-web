@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CardsService } from '../../shared/cards.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Card } from 'src/app/shared/types';
 
@@ -12,6 +12,7 @@ export class CardsPageComponent {
   private cardsService = inject(CardsService);
   private activatedRoute = inject(ActivatedRoute);
   private toastr = inject(ToastrService);
+  private router = inject(Router);
 
   public cards: Card[] = [];
 
@@ -21,6 +22,12 @@ export class CardsPageComponent {
 
       this.cardsService.getCards(id).subscribe({
         next: (response) => {
+          if (response.data.length < 1) {
+            this.toastr.error(
+              'Usted no tiene cartones para el siguiente juego'
+            );
+            this.router.navigateByUrl('/rooms/' + id);
+          }
           this.cards = response.data;
         },
         error: (error) =>
