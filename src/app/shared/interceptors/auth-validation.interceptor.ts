@@ -6,7 +6,8 @@ import {
   HttpInterceptor,
   HttpResponse,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs/';
+import { catchError } from 'rxjs/operators';
 import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
 
@@ -21,18 +22,15 @@ export class AuthValidationInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    const nextHandler = next.handle(request);
+    return next.handle(request).pipe(
+      catchError((error) => {
+        if (error.status !== 401 && error.status !== 403) throw error;
 
-    nextHandler.subscribe({
-      error: (res) => {
-        if (!res) return;
-        res = res as HttpResponse<unknown>;
-        if (res.status === 401) {
-          this.authenticationService.logout();
-          this.router.navigateByUrl('/login');
-        }
-      },
-    });
-    return nextHandler;
+        this.authenticationService.logout();
+        this.router.navigateByUrl('/login');
+
+        throw error;
+      })
+    );
   }
 }
