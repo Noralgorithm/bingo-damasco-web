@@ -1,0 +1,29 @@
+<main className="flex w-full items-center justify-center">
+  <section
+    class="mx-auto w-full max-w-7xl flex flex-col justify-center items-center gap-6"
+  >
+    <h1 class="text-lg lg:text-2xl font-bold text-center">
+      Historial de juegos
+    </h1>
+    <table
+      class="bg-brand-white text-brand-dark-green w-full text-xl text-center rounded-lg table-fixed"
+    >
+      <thead class="table-header-group">
+        <tr class="table-row">
+          <th>Sala</th>
+          <th>ID del juego</th>
+          <th>Fecha</th>
+          <th>Resultado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of history.reverse()" class="table-row">
+          <td class="mt-8 table-cell">{{ p.game.room.name }}</td>
+          <td class="mt-8 table-cell">{{ p.game.id }}</td>
+          <td class="mt-8 table-cell">{{ p.game.played_date.slice(0, 10) }}</td>
+          <td class="mt-8 table-cell">{{ p.isVictory ? 'Victoria' : 'No victoria' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>

@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { HistoryPageComponent } from './pages/history-page/history-page.component';
 
 
 @NgModule({
   declarations: [
-    ProfilePageComponent
+    ProfilePageComponent,
+    HistoryPageComponent
   ],
   imports: [
     CommonModule,

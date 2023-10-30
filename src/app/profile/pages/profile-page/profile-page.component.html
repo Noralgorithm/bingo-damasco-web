@@ -1,11 +1,20 @@
-<main class="flex flex-col justify-center items-center pt-12 pb-8" *ngIf="userInfo">
-  <section class="flex justify-between items-center w-full max-w-7xl gap-2">
+<main
+  class="flex flex-col justify-center items-center pt-12 pb-8"
+  *ngIf="userInfo"
+>
+  <section class="flex flex-col sm:flex-row justify-between items-center w-full max-w-7xl gap-2">
     <h3 class="text-2xl lg:text-4xl font-bold">@{{ userInfo.nickname }}</h3>
     <a
       routerLink="/marketplace"
       class="rounded-md bg-brand-aqua text-brand-white py-3 lg:px-8 px-3 text-center"
     >
       Comprar créditos
+    </a>
+    <a
+      routerLink="/profile/history"
+      class="rounded-md bg-brand-aqua text-brand-white py-3 lg:px-8 px-3 text-center"
+    >
+    Historial de Juegos
     </a>
   </section>
   <section class="w-full max-w-7xl">
@@ -15,7 +24,9 @@
   </section>
 
   <section class="w-full max-w-7xl flex flex-col gap-6">
-    <h3 class="text-lg lg:text-2xl font-bold text-center">Historial de transacciones</h3>
+    <h3 class="text-lg lg:text-2xl font-bold text-center">
+      Historial de transacciones
+    </h3>
     <table
       class="bg-brand-white text-brand-dark-green w-full text-xl text-center rounded-lg table-fixed"
     >
